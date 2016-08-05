@@ -310,9 +310,10 @@
         var target = options.overrideKey ? options.overrideKey : $this.attr('id').replace('#', '');
         options.width = options.svgData[target].dimensions.width;
         options.height = options.svgData[target].dimensions.height;
+        options.x = 0 | options.svgData[target].dimensions.x;
+        options.y = 0 | options.svgData[target].dimensions.y;
         options.paths = $.extend(true, [], options.svgData[target].strokepath);
-        options.svg = _getSVGElement('0 0 ' + options.width + ' ' + options.height);
-
+        options.svg = _getSVGElement(options.x + ' ' + options.y + ' ' + options.width + ' ' + options.height);
         return options;
     };
 
